@@ -190,4 +190,8 @@ public class AddressBook {
     public void writeDataCSVFileDestination() throws IOException {
         new AddressBookCSVFileWriter().writeToCSV(contactListForReadWrite);
     }
+
+    public void writeDataJsonFileDestination(){
+        new AddressBookJsonFileWriter().writeToJson(contactListForReadWrite);
+    }
 }
