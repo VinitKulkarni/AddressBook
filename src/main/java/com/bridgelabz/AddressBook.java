@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class AddressBook {
     Scanner sc = new Scanner(System.in);
-    Contact contact;
-    List<Contact> contactList = new ArrayList<>();
+    String addressBookName;
+    List<Contact> contactList;
 
-    public AddressBook(){
-        this.contact = contact;
+    public AddressBook(String addressBookName){
+        this.addressBookName = addressBookName;
+        contactList = new ArrayList<>();
     }
 
     public void addContact(){
@@ -32,7 +33,7 @@ public class AddressBook {
         System.out.print("Enter the Email ID:");
         String email = sc.next();
 
-        contact = new Contact(firstName,lastName,address,cityName,stateName,zipCode,phoneNumber,email);
+        Contact contact = new Contact(firstName,lastName,address,cityName,stateName,zipCode,phoneNumber,email);
 
         contactList.add(contact);
     }
