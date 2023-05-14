@@ -30,6 +30,7 @@ public class AddressBook {
         String email = sc.next();
 
         contact = new Contact(firstName,lastName,address,cityName,stateName,zipCode,phoneNumber,email);
+        System.out.println(contact.toString());
     }
 
     public void editContact(){
