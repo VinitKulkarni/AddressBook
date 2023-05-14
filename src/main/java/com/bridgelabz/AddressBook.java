@@ -1,5 +1,6 @@
 package com.bridgelabz;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -184,5 +185,9 @@ public class AddressBook {
     public void readDataFromFileDestination(){
         new AddressBookFileIOServices().printData();
         System.out.println("Number of contacts stored in File is: " + new AddressBookFileIOServices().countEntries());
+    }
+
+    public void writeDataCSVFileDestination() throws IOException {
+        new AddressBookCSVFileWriter().writeToCSV(contactListForReadWrite);
     }
 }
