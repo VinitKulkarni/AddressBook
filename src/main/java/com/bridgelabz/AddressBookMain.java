@@ -29,16 +29,16 @@ public class AddressBookMain {
         while(temp != 0) {
             String addressBookName = "";
             System.out.println("[ 1.AddContact 2.EditContact 3.DeleteContact 4.DisplayContact 5.ViewByCityOrState 6.CountByCityOrState 7.SortFields " +
-                    "8.WriteIntoFile 9.ReadFromFile 10.WriteIntoCSVFile 99.BackToMain ]");
+                    "8.WriteIntoFile 9.ReadFromFile 10.WriteIntoCSVFile 11.WriteIntoJsonFile 99.BackToMain ]");
             System.out.print("Enter your choice:");
             int choice = sc.nextInt();
             if (choice == 99) break;
 
-            if(choice != 5 & choice != 6 & choice != 7 & choice != 8 & choice != 9 & choice != 10){
+            if(choice != 5 & choice != 6 & choice != 7 & choice != 8 & choice != 9 & choice != 10 & choice != 11){
                 System.out.print("Enter the name of existing Address Book:");
                 addressBookName = sc.next();
             }
-            if (dictAddressBook.containsKey(addressBookName) | choice == 5 | choice == 6 | choice == 7 | choice == 8 | choice == 9 | choice == 10) {
+            if (dictAddressBook.containsKey(addressBookName) | choice == 5 | choice == 6 | choice == 7 | choice == 8 | choice == 9 | choice == 10 | choice == 11) {
                 AddressBook addressBook = dictAddressBook.get(addressBookName);
 
                 switch (choice) {
@@ -71,6 +71,9 @@ public class AddressBookMain {
                         break;
                     case 10:
                         writeDataToCsvFile();
+                        break;
+                    case 11:
+                        writeDataToJsonFile();
                         break;
                     default:
                         System.out.println(" choose correct option");
@@ -237,6 +240,11 @@ public class AddressBookMain {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void writeDataToJsonFile(){
+        AddressBook addressBookObject = new AddressBook();
+        addressBookObject.writeDataJsonFileDestination();
     }
 
     public static void main(String[] args) {
